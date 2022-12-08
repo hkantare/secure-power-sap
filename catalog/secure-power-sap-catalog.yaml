@@ -63,6 +63,9 @@ modules:
         value: $blueprint.region
       - name: ssh_public_key
         value: $blueprint.ssh_public_key
+      - name: vpcs
+        value: "[\"management\", \"workload\"]"
+        type: "list(string)"
     outputs:
       - name: schematics_workspace_id
       - name: config
