@@ -15,40 +15,6 @@ inputs:
     description: A unique identifier for resources
     type: string
     optional: true
-  - name: tags
-    type: list(string)
-  - name: vpcs
-    type: list(string)
-  - name: enable_transit_gateway
-    type: bool
-  - name: add_atracker_route
-    type: bool
-  - name: use_random_cos_suffix
-    type: bool
-  - name: vsi_per_subnet
-    type: number
-  - name: add_edge_vpc
-    type: bool
-  - name: create_f5_network_on_management_vpc
-    type: bool
-  - name: provision_teleport_in_f5
-    type: bool
-  - name: enable_f5_management_fip
-    type: bool
-  - name: enable_f5_external_fip
-    type: bool
-  - name: teleport_management_zones
-    type: bool
-  - name: use_existing_appid
-    type: bool
-  - name: create_secrets_manager
-    type: bool
-  - name: enable_scc
-    type: bool
-  - name: add_kms_block_storage_s2s
-    type: bool
-  - name: override
-    type: bool
   - name: ssh_public_key
     description: Public SSHKey for VSI
     type: string
@@ -125,40 +91,6 @@ modules:
       - name: powervs_resource_group_name
         value: $blueprint.powervs_resource_group_name
         type: string
-      - name: tags
-        type: list(string)
-      - name: vpcs
-        type: list(string)
-      - name: enable_transit_gateway
-        type: bool
-      - name: add_atracker_route
-        type: bool
-      - name: use_random_cos_suffix
-        type: bool
-      - name: vsi_per_subnet
-        type: number
-      - name: add_edge_vpc
-        type: bool
-      - name: create_f5_network_on_management_vpc
-        type: bool
-      - name: provision_teleport_in_f5
-        type: bool
-      - name: enable_f5_management_fip
-        type: bool
-      - name: enable_f5_external_fip
-        type: bool
-      - name: teleport_management_zones
-        type: bool
-      - name: use_existing_appid
-        type: bool
-      - name: create_secrets_manager
-        type: bool
-      - name: enable_scc
-        type: bool
-      - name: add_kms_block_storage_s2s
-        type: bool
-      - name: override
-        type: bool
     outputs:
       - name: powervs_workspace_name_id
     settings:
