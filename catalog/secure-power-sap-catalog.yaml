@@ -81,6 +81,8 @@ modules:
         offering_name: "terraform-ibm-powervs-catalog-powervs-sap-infrastructure"
         offering_version: "v5.2.0"
     inputs:
+      - name: ibmcloud_api_key
+        value: $blueprint.ibmcloud_api_key
       - name: prerequisite_workspace_id
         value: $module.secure-infrastructure.schematics_workspace_id
         type: string
@@ -132,6 +134,8 @@ modules:
         offering_name: "terraform-ibm-powervs-catalog-powervs-sap-systems"
         offering_version: "v3.1.0"
     inputs:
+      - name: ibmcloud_api_key
+        value: $blueprint.ibmcloud_api_key
       - name: prerequisite_workspace_id
         value: $module.power-infrastructure.powervs_workspace_name_id
         type: string
