@@ -120,7 +120,7 @@ modules:
         value: "[\"sap\"]"
         type: "list(string)"
     outputs:
-      - name: powervs_workspace_name_id
+      - name: schematics_workspace_id
     settings:
       - name: TF_VERSION
         value: 1.1
@@ -137,7 +137,7 @@ modules:
       - name: ibmcloud_api_key
         value: $blueprint.ibmcloud_api_key
       - name: prerequisite_workspace_id
-        value: $module.power-infrastructure.powervs_workspace_name_id
+        value: $module.power-infrastructure.schematics_workspace_id
         type: string
       - name: sap_hana_additional_storage_config
         value: "{\n names = \"usrsap\"\n disks_size = \"50\"\n counts = \"1\"\n tiers = \"tier3\"\n paths = \"/usr/sap\"\n }"
