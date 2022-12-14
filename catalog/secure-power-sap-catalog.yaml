@@ -140,6 +140,13 @@ modules:
       - name: prerequisite_workspace_id
         value: $module.power-infrastructure.schematics_workspace_id
         type: string
+      - name: ssh_private_key
+        value: $blueprint.ssh_private_key
+        type: string
+      - name: powervs_zone
+        value: $blueprint.powervs_zone
+      - name: prefix
+        value: $blueprint.prefix
       - name: sap_hana_additional_storage_config
         value: "{\n names = \"usrsap\"\n disks_size = \"50\"\n counts = \"1\"\n tiers = \"tier3\"\n paths = \"/usr/sap\"\n }"
         type: "object({ names = string disks_size = string counts = string tiers = string paths = string })"
