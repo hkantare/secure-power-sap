@@ -94,9 +94,6 @@ modules:
       - name: powervs_resource_group_name
         value: $blueprint.powervs_resource_group_name
         type: string
-      - name: tags
-        value: "[\"sap\"]"
-        type: "list(string)"
     outputs:
       - name: schematics_workspace_id
     settings:

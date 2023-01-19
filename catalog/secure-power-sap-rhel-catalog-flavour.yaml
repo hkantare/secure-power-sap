@@ -64,9 +64,6 @@ modules:
         value: $blueprint.region
       - name: ssh_public_key
         value: $blueprint.ssh_public_key
-      - name: vpcs
-        value: "[\"management\", \"workload\"]"
-        type: "list(string)"
     outputs:
       - name: schematics_workspace_id
       - name: config
@@ -97,30 +94,6 @@ modules:
       - name: powervs_resource_group_name
         value: $blueprint.powervs_resource_group_name
         type: string
-      - name: powervs_management_network
-        value: "{\n name = \"mgmt_net\"\n cidr = \"10.51.0.0/24\"\n }"
-        type: "object({ name = string cidr = string })"
-      - name: powervs_backup_network
-        value: "{\n name = \"bkp_net\"\n cidr = \"10.52.0.0/24\"\n }"
-        type: "object({ name = string cidr = string })"
-      - name: squid_config
-        value: "{\n \"server_host_or_ip\" = \"\"\n \"squid_port\" = \"\"\n }"
-        type: "object({ server_host_or_ip = string squid_port = string })"
-      - name: dns_forwarder_config
-        value: "{\n \"server_host_or_ip\" = \"\"\n \"dns_servers\" = \"161.26.0.7; 161.26.0.8; 9.9.9.9;\"\n }"
-        type: "object({ server_host_or_ip = string dns_servers = string })"
-      - name: nfs_config
-        value: "{\n \"server_host_or_ip\" = \"\"\n \"nfs_directory\" = \"/nfs\"\n }"
-        type: "object({ server_host_or_ip = string nfs_directory = string })"
-      - name: ntp_forwarder_config
-        value: "{\n \"server_host_or_ip\" = \"\"\n }"
-        type: "object({ server_host_or_ip = string })"
-      - name: powervs_image_names
-        value: "[\"SLES15-SP3-SAP\", \"SLES15-SP3-SAP-NETWEAVER\", \"RHEL8-SP4-SAP\", \"RHEL8-SP4-SAP-NETWEAVER\"]"
-        type: "list(string)"
-      - name: tags
-        value: "[\"sap\"]"
-        type: "list(string)"
     outputs:
       - name: schematics_workspace_id
     settings:
@@ -148,27 +121,6 @@ modules:
         value: $blueprint.powervs_zone
       - name: prefix
         value: $blueprint.prefix
-      - name: sap_hana_additional_storage_config
-        value: "{\n names = \"usrsap\"\n disks_size = \"50\"\n counts = \"1\"\n tiers = \"tier3\"\n paths = \"/usr/sap\"\n }"
-        type: "object({ names = string disks_size = string counts = string tiers = string paths = string })"
-      - name: sap_hana_custom_storage_config
-        value: "{\n names = \"\"\n disks_size = \"\"\n counts = \"\"\n tiers = \"\"\n paths = \"\"\n }"
-        type: "object({ names = string disks_size = string counts = string tiers = string paths = string })"
-      - name: sap_hana_instance_config
-        value: "{\n os_image_name = \"\"\n sap_profile_id = \"\"\n }"
-        type: "object({ os_image_name = string sap_profile_id = string })"
-      - name: sap_share_instance_config
-        value: "{\n os_image_name = \"\"\n number_of_processors = \"0.5\"\n memory_size = \"4\"\n cpu_proc_type = \"shared\"\n server_type = \"s922\"\n }"
-        type: "object({ os_image_name = string number_of_processors = string memory_size = string cpu_proc_type = string server_type = string })"
-      - name: sap_share_storage_config
-        value: "{\n names = \"share\"\n disks_size = \"1000\"\n counts = \"1\"\n tiers = \"tier3\"\n paths = \"/share\"\n }"
-        type: "object({ names = string disks_size = string counts = string tiers = string paths = string })"
-      - name: sap_netweaver_instance_config
-        value: "{\n number_of_instances = \"\"\n os_image_name = \"\"\n number_of_processors = \"\"\n memory_size = \"\"\n cpu_proc_type = \"shared\"\n server_type = \"s922\"\n }"
-        type: "object({ number_of_instances = string os_image_name = string number_of_processors = string memory_size = string cpu_proc_type = string server_type = string })"
-      - name: sap_netweaver_storage_config
-        value: "{\n names = \"usrsap,usrtrans\"\n disks_size = \"50,50\"\n counts = \"1,1\"\n tiers = \"tier3,tier3\"\n paths = \"/usr/sap,/usr/sap/trans\"\n }"
-        type: "object({ names = string disks_size = string counts = string tiers = string paths = string })"
     settings:
       - name: TF_VERSION
         value: 1.2
